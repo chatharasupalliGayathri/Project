@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>AgriChain</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="{{ url_for('static', filename='lib/animate/animate.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+<!-- Navbar & Hero Start -->
+<div class="container-xxl position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+        <a href="/" class="navbar-brand p-0">
+            <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Agronomy</h1>
+            <!-- <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/about" class="nav-item nav-link">About</a>
+                <a href="/service" class="nav-item nav-link">Service</a>
+                <a href="/team" class="nav-item nav-link">Our Team</a>
+                <!-- <a href="/menu" class="nav-item nav-link">Menu</a> -->
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="/booking" class="dropdown-item">Booking</a>
+                        <a href="/team" class="dropdown-item">Our Team</a>
+                        <a href="/testimonial" class="dropdown-item">Testimonial</a>
+                    </div>
+                </div> -->
+                <!-- <a href="/contact" class="nav-item nav-link">Contact</a> -->
+            </div>
+            <a href="/enter" class="btn btn-primary py-2 px-4">Enter into</a>
+        </div>
+    </nav>
+
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Service</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Navbar & Hero End -->
+
+
+
+        <!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Our Services</h5>
+            <h1 class="mb-5">Explore Our Services</h1>
+        </div>
+        <div class="row g-4">
+            <!-- Existing services -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-tachometer-alt text-primary mb-4"></i>
+                        <h5>Data Collection & Display</h5>
+                        <p>Utilizes IoT sensors to collect real-time data on soil and atmospheric conditions, providing farmers with insights for informed decision-making.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Existing services -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-water text-primary mb-4"></i>
+                        <h5>Automation Irrigation Control</h5>
+                        <p>Automates irrigation systems based on moisture data, optimizing water usage and enhancing crop growth.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Existing services -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-virus text-primary mb-4"></i>
+                        <h5>Disease Identification</h5>
+                        <p>Implements machine learning algorithms to identify crop diseases early, enabling timely intervention and management.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Existing services -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-leaf text-primary mb-4"></i>
+                        <h5>Organic Remedy Recommendation</h5>
+                        <p>Provides farmers with organic remedy recommendations for disease management, promoting sustainable agricultural practices.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Existing services -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-file-alt text-primary mb-4"></i>
+                        <h5>Insurance Schemes</h5>
+                        <p>Offers various insurance schemes tailored to farmers' needs, providing financial protection against natural calamities.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Existing services -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-recycle text-primary mb-4"></i>
+                        <h5>Stubble Utilization</h5>
+                        <p>Sells crop residues (stubble) to bioenergy-producing industries, providing farmers with an additional source of income.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Existing services -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-shopping-cart text-primary mb-4"></i>
+                        <h5>Online Sales Utilization</h5>
+                        <p>Facilitates online sales of crops through a digital market interface, enabling farmers to reach a wider customer base and streamline the selling process.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add the Security service -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-shield-alt text-primary mb-4"></i>
+                        <h5>Security</h5>
+                        <p>Ensures data privacy and system security through robust encryption and authentication measures, safeguarding farmers' information and the integrity of the agricultural system.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!-- Service End -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='lib/wow/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/tempusdominus/js/moment.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

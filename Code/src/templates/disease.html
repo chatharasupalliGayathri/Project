@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease page</title>
+    <style>
+        body{
+      background-color: rgb(244, 233, 245);
+    }
+       #one
+        {
+            height:70px;
+            background-color: #F86F03;
+        }
+        #one1
+        {
+            /* margin-top: 30px; */
+            height:70px;
+            background-color: #f98c39;
+        }
+        #t{
+            color:white;
+            margin-top: 20px;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+            margin-right:60px ;
+            border-radius:10px;
+            background-color:transparent;
+        }
+        #two
+        {
+            text-align: center;
+            float: left;
+            width: 27%;
+            height:70px;
+        }
+        #three
+        {
+            text-align: center;
+            float:right;
+            width:55%;
+            height: 70px;
+            line-height:70px;
+        } 
+        #three1
+    {
+        text-align: center;
+        width:100%;
+        height: 70px;
+        line-height:70px;
+        display: flex;
+        align-items: center; /* Align text vertically in the middle */
+    } 
+    #image-container {
+        background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            height: 200px;
+            margin-top: 20px; /* Add margin to separate image from the form */
+        }
+        #uploaded-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form action="/disease" method="post" enctype="multipart/form-data">
+        <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,te,mr,ta,ur,gu,kn,ml',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="one">
+        <div id="two">
+            <h2 id="t">
+                <i> Disease Page </i>
+            </h2>
+        </div>
+        <div id="three" >
+            <a href="/uhome" style="color: white;">Home</a>
+            <a href="/selling" style="color: white;">Selling</a>
+            <a href="/stubble" style="color: white;">Stubble</a>
+            <a href="/insurance" style="color: white;">Insurance</a>
+            <a href="/profile" style="color: white;">Profile</a>
+            <a href="/logout" style="color: white;">Logout</a>
+        </div>
+    </div>
+    <marquee style="color:blue"><h3>You can upload an image to get the disease details</h3></marquee>
+    <div id="one1">
+        <div id="three1" >
+            <a href="/production" style="color: white;padding-left: 300px;padding-right: 100px;">Back</a>
+            <a href="/sdata" style="color: white;padding-left: 100px;padding-right: 150px;">Sensor data</a>
+            <a href="/irrigation" style="color: white;padding-left: 150px;padding-right: 100px;">Irrigation</a>
+        </div>
+    </div>
+<input type="file" name="image" id="image-input" style="color: black;">
+<button type="submit">Submit</button>
+<div id="image-container">
+    <img id="uploaded-image" src="{{img}}" alt="Uploaded Image">
+</div>
+    <h1 style="color:black">Name: {{na}}</h1>
+    <h1 style="color:black">Reasons: {{reasons}}</h1>
+    <h1 style="color:black">Remedies: {{remedies}}</h1>
+    <h1 style="color:black">confidence_score: {{confidence_score}}</h1>
+    <script>
+        document.getElementById('image-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const image = document.getElementById('uploaded-image');
+            image.src = URL.createObjectURL(file);
+        });
+    </script>
+    </form>
+</body>
+</html>

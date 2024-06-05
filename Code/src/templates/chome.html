@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous" 
+      />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registartion Page</title>
+  <style>
+    body {
+    background-image: url('../static/cback.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(4px);
+}
+    #one
+        {
+            height:70px;
+            background-color: #F86F03;
+        }
+        #t{
+            color:white;
+            margin-top: 20px;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+            margin-right:60px ;
+            border-radius:10px;
+            background-color:transparent;
+        }
+        #two
+        {
+            text-align: center;
+            float: left;
+            width: 27%;
+            height:70px;
+        }
+        #three
+        {
+            text-align: center;
+            float:right;
+            width:55%;
+            height: 70px;
+            line-height:70px;
+        } 
+        .wrapper,
+.wrapper1 {
+    background-color: #f0f0f0;
+  width: 100%; 
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid black;
+  backdrop-filter: blur(9px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-top: 80px; 
+  margin-bottom: 20px; 
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper,
+  .wrapper1 {
+    width: 70%; 
+    margin-left: 240px; 
+  }
+}
+  </style>
+</head>
+<body>
+    <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,te,mr,ta,ur,gu,kn,ml',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <div id="one">
+            <div id="two">
+                <h2 id="t">
+                    <i> Consumer Page </i>
+                </h2>
+            </div>
+            <div id="three" >
+                <a href="/cprofile" style="color: white;">Profile</a>
+                <a href="/enter" style="color: white;">Logout</a>
+            </div>
+        </div>
+        <h2>{{msg}}</h2>
+        <div class="wrapper">
+            <h1>Here are the list of requests you got</h1>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>Farmer Name</td>
+                    <td>Crop Name</td>
+                    <td>Crop Quantity</td>
+                    <td>Date</td>
+                    <td>Status</td>
+                    <td>Report</td>
+                    <td></td>
+                </tr>
+                {% for item in data %}
+                <tr>
+                    <th><h4>{{item.name}}</h4></th>
+                    <th><h4>{{item.cname}}</h4></th>
+                    <th><h4>{{item.cquan}}</h4></th>
+                    <th><h4>{{item.date}}</h4></th>
+                    <th><h4>{{item.status}}</h4></th>
+                    <th><a href="/report"><button class="primary">Show Report</button></a></th>
+                    <th><a href="/cupstatus/{{item._id}}"><button class="primary">Accept</button></a></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+</body>
+</html>

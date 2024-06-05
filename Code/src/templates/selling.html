@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User page</title>
+    <style>
+         body {
+    background-image: url('../static/sell1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(4px);
+}
+        #one {
+            height:70px;
+            background-color: #F86F03;
+            position: relative;
+        }
+        #t {
+            color:white;
+            margin-top: 20px;
+        }
+        a {
+            color:black;
+            text-decoration: none;
+            margin-right:60px;
+            border-radius:10px;
+            background-color:transparent;
+        }
+        #two {
+            text-align: center;
+            float: left;
+            width: 27%;
+            height:70px;
+        }
+        #three {
+            text-align: center;
+            float:right;
+            width:55%;
+            height: 70px;
+            line-height:70px;
+        } 
+        .row1, .row2, .row3 {
+            background-color: #f0f0f0;
+            color: black;
+            font-size: 33px;
+            font-weight: 600;
+            margin: 0 0 40px 0;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            position: absolute;
+            z-index: 999;
+            text-align: center;
+            padding: 20px 42px;
+            width: 170px;
+            height:80px;
+            box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+        }
+        .row1 {
+            top: 55%;
+            left: 20%;
+            transform: translate(-50%,-50%);
+        }
+        .row2 {
+            top: 55%;
+            right: 20%;
+            transform: translate(50%,-50%);
+        }
+        .row3 {
+            padding-top:30px;
+            padding-bottom:50px;
+            padding-left:60px;
+            height:20px;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #three1
+    {
+        text-align: center;
+        width:100%;
+        height: 70px;
+        line-height:70px;
+        display: flex;
+        align-items: center; /* Align text vertically in the middle */
+    }
+    #one1
+        {
+            /* margin-top: 30px; */
+            height:70px;
+            background-color: #f98c39;
+        }
+    </style>
+</head>
+<body>
+    <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,te,mr,ta,ur,gu,kn,ml',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="one">
+        <div id="two">
+            <h2 id="t">
+                <i> Selling Page </i>
+            </h2>
+        </div>
+        <div id="three" >
+            <a href="/uhome" style="color: white;">Home</a>
+            <a href="/production" style="color: white;">Production</a>
+            <a href="/stubble" style="color: white;">Stubble</a>
+            <a href="/insurance" style="color: white;">Insurance</a>
+            <a href="/profile" style="color: white;">Profile</a>
+            <a href="/logout" style="color: white;">Logout</a>
+        </div>
+    </div>
+    <marquee style="color:blue"><h3>You have different selling mechanisms to sell your crop</h3></marquee>
+    <div id="one1">
+        <div id="three1" >
+            <a href="/storeselling" style="color: white;padding-left: 400px;padding-right: 200px;">Store Data</a>
+            <a href="/showselling" style="color: white;padding-left: 200px;padding-right: 100px;">Show Transaction History</a>
+        </div>
+    </div>
+    <h1>{{msg}}</h1>
+    <div class="row1">
+        <a href="/toone">Individual Buyer</a>
+    </div>
+    <div class="row2">
+        <a href="/toemart">E-Mart platforms</a>
+    </div>
+    <div class="row3">
+        <a href="/tobidding">Bidding</a>
+    </div>
+</body>
+</html>

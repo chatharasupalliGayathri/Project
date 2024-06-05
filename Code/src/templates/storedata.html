@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registartion Page</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-image: url('../static/stored.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: url('{{url_for("static",filename="bglogin.jpg")}}'), #000; */
+  background-position: center;
+  background-size: cover;
+}
+
+.wrapper {
+  background: #f0f0f0;
+  width: 700px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid black;
+  backdrop-filter: blur(9px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* -webkit-backdrop-filter: blur(9px);
+  filter:blur(40px); */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid black;
+  margin: 15px 0;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: black;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: black;
+}
+
+.wrapper a {
+  color: black;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  text-decoration: none;
+  width:400px
+}
+
+button:hover {
+  color: black;
+  border-color:black;
+  background: rgba(255, 255, 255, 0.15);
+}
+  </style>
+</head>
+<body>
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,te,mr,ta,ur,gu,kn,ml',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+{% set sell_data = "/storeselling" %}
+{% set stubble_data = "/storestubble" %}
+{% set scheme_data = "/storescheme" %}
+{% set current_path = request.path %}
+
+{% if current_path == sell_data %}
+<form action="{{ sell_data }}" method="post">
+  <script>
+    function updateBuyerOptions() {
+      var emartlist = document.querySelector(".emart-list");
+      var biddinglist = document.querySelector(".bidding-list");
+      var selectedRadio = document.querySelector('input[name="btype"]:checked');
+  
+      if (selectedRadio && selectedRadio.value === "emart") {
+        emartlist.style.display = "block";
+        biddinglist.style.display = "none";
+      } else if (selectedRadio && selectedRadio.value === "bidding") {
+        emartlist.style.display = "none";
+        biddinglist.style.display = "block";
+      } else {
+        emartlist.style.display = "none";
+        biddinglist.style.display = "none";
+      }
+    }
+</script>
+  <div class="wrapper">
+      <h4><a href="/selling">Return to Home</a></h4>
+      <h2>Please Enter Negotiation Details</h2>
+      <div class="input-field">
+          <input type="text" name="cname" required>
+          <label>Enter Crop Name</label>
+      </div>
+      <div class="input-field">
+          <label>Select Buyer Type:</label><br>
+          <input type="radio" id="individual" name="btype" value="individual" required onclick="updateBuyerOptions()"> Individual
+          <input type="radio" id="bidding" name="btype" value="bidding" required onclick="updateBuyerOptions()"> Bidding
+          <input type="radio" id="emart" name="btype" value="emart" required onclick="updateBuyerOptions()"> eMart
+      </div>        
+      <div class="emart-list" style="display: none;">
+          <h3>eMart Websites:</h3>
+          <select name="ename">
+            <option value="">None</option>
+            <option value="https://farmersandbuyers.com/">https://farmersandbuyers.com/</option>
+            <option value="https://www.krishi-market.com/">https://www.krishi-market.com/</option>
+            <option value="https://www.agribazaar.com/">https://www.agribazaar.com/</option>
+            <option value="https://www.kisandeals.com/">https://www.kisandeals.com/</option>
+            <option value="https://nurture.farm/">https://nurture.farm/</option>
+            <option value="https://go4fresh.com/">https://go4fresh.com/</option>
+            <option value="https://fasalmandi.com/">https://fasalmandi.com/</option>
+            <option value="https://agrimp.com/">https://agrimp.com/</option>
+            <option value="https://www.bookmycrop.com/">https://www.bookmycrop.com/</option>
+            <option value="https://www.bighaat.com/">https://www.bighaat.com/</option>
+          </select>
+      </div>
+      <div class="bidding-list" style="display: none;">
+          <h3>Bidding Websites:</h3>
+          <select name="bdname">
+            <option value="">None</option>
+            <option value="https://dreembox.com/">https://dreembox.com/</option>
+            <option value="https://www.salasarauction.com/">https://www.salasarauction.com/</option>
+            <option value="https://www.justauction.in/">https://www.justauction.in/</option>
+            <option value="https://bidsingh.com/">https://bidsingh.com/</option>
+            <option value="https://www.bidderboy.com/">https://www.bidderboy.com/</option>
+            <option value="https://www.kisanmandi.com/">https://www.kisanmandi.com/</option>
+            <option value="https://www.indiafilings.com/learn/e-rakam/">https://www.indiafilings.com/learn/e-rakam/</option>
+            <option value="https://enam.gov.in/">https://enam.gov.in/</option>
+            <option value="https://agrimp.com/">https://agrimp.com/</option>
+          </select>
+      </div>
+      <div class="input-field">
+          <input type="text" name="bname" required>
+          <label>Enter Buyer Name</label>
+      </div>
+      <div class="input-field">
+          <input type="text" name="cquan" required>
+          <label>Enter Crop Quantity</label>
+      </div>
+      <div class="input-field">
+          <input type="text" name="amt" required>
+          <label>Enter Amount</label>
+      </div>
+      <div class="input-field">
+          <input type="text" name="date" required>
+          <label>Enter Date</label>
+      </div>
+      <button type="submit">Store Data</button>
+      <h3>{{msg}}</h3>
+  </div>
+</form>
+
+{% elif current_path == stubble_data %}
+<form action="{{ stubble_data }}" method="post">
+    <div class="wrapper">
+        <h4><a href="/stubble">return to Home</a></h4>
+        <h2>please enter negotiation details</h2>
+          <div class="input-field">
+          <input type="text" name="sname" required>
+          <label>Enter stubble crop name</label>
+        </div>
+        <!-- <div class="input-field">
+          <input type="text" name="iname" required>
+          <label>Enter industry name</label>
+        </div> -->
+        <div class="input-field">
+          <select name="iname" required>
+            <option value="">Select industry name</option>
+            <option value="Moksha Bio Energy Products">Moksha Bio Energy Products</option>
+            <option value="Altovex Bio Industries">Altovex Bio Industries</option>
+            <option value="Sujay Biotech Pvt. Ltd.">Sujay Biotech Pvt. Ltd.</option>
+            <option value="VijayaMalleshwara Industries">VijayaMalleshwara Industries</option>
+            <option value="Micco Laboratories Private Limited">Micco Laboratories Private Limited</option>
+            <option value="SSD Bio Sciences">SSD Bio Sciences</option>
+            <option value="Bio Enviro Chemical Solutions">Bio Enviro Chemical Solutions</option>
+            <option value="Crux Bio Products">Crux Bio Products</option>
+            <option value="Indian Biomass Briquettes">Indian Biomass Briquettes</option>
+            <option value="Radar Biotech Private Limited">Radar Biotech Private Limited</option>
+            <option value="Probaq Biosolutions">Probaq Biosolutions</option>
+            <option value="SKS BIO PRODUCTS PVT LTD">SKS BIO PRODUCTS PVT LTD</option>
+            <option value="Bits Bio Fuel Industries">Bits Bio Fuel Industries</option>
+            <option value="KKR BIO FUELS">KKR BIO FUELS</option>
+            <option value="Crux Bio-tech Power Plant">Crux Bio-tech Power Plant</option>
+            <option value="Nikitha Bio Fuels">Nikitha Bio Fuels</option>
+            <option value="Altovex Bio Industries">Altovex Bio Industries</option>
+            <option value="Hayagreeva Bio Organics Pvt Ltd">Hayagreeva Bio Organics Pvt Ltd</option>
+            <option value="Narayani Bio-Fuels">Narayani Bio-Fuels</option>
+          </select>
+          <label>Enter industry name</label>
+        </div>
+        
+        <div class="input-field">
+          <input type="text" name="bname" required>
+          <label>Enter buyer name</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="squan" required>
+          <label>Enter stubble quantity</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="amt" required>
+          <label>Enter amount</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="date" required>
+          <label>Enter date</label>
+        </div>
+        <button type="submit">Store Data</button>
+        <h3>{{msg1}}</h3>
+    </div>
+  </form>
+{% elif current_path == scheme_data %}
+<form action="{{ scheme_data }}" method="post">
+  <script>
+    function updateSchemeOptions() {
+      var stateSchemes = document.querySelector(".state-schemes");
+      var centralSchemes = document.querySelector(".central-schemes");
+      var selectedRadio = document.querySelector('input[name="stype"]:checked');
+  
+      if (selectedRadio && selectedRadio.value === "State") {
+        stateSchemes.style.display = "block";
+        centralSchemes.style.display = "none";
+      } else if (selectedRadio && selectedRadio.value === "Central") {
+        stateSchemes.style.display = "none";
+        centralSchemes.style.display = "block";
+      } else {
+        stateSchemes.style.display = "none";
+        centralSchemes.style.display = "none";
+      }
+    }
+  </script>
+    <div class="wrapper">
+        <h4><a href="/insurance">return to Home</a></h4>
+        <h2>please enter negotiation details</h2>
+        <div class="input-field">
+          <label>Select scheme type:</label><br>
+          <input type="radio" id="state" name="stype" value="State" required onclick="updateSchemeOptions()">State
+          <input type="radio" id="central" name="stype" value="Central" required onclick="updateSchemeOptions()">Central
+      </div> 
+      <div class="state-schemes" style="display: none;">
+          <select name="sname">
+              <option value="">None</option>
+              <option value="YSR Jagananna Saswatha Bhoomi">YSR Jagananna Saswatha Bhoomi</option>
+              <option value="YSR Donna Baddie Scheme">YSR Donna Baddie Scheme</option>
+              <option value="Jagananna Herbs Lesotho Scheme">Jagananna Herbs Lesotho Scheme</option>
+              <option value="Free Crop Insurance Scheme">Free Crop Insurance Scheme</option>
+              <option value="YSR Jalapeno Kala Scheme">YSR Jalapeno Kala Scheme</option>
+              <option value="Agriculture Electricity Cash Transfer Scheme">Agriculture Electricity Cash Transfer Scheme</option>
+              <option value="Rythu Raksha Scheme">Rythu Raksha Scheme</option>
+              <option value="YSR Ruthy Bharos-PM Kosam Scheme">YSR Ruthy Bharos-PM Kosam Scheme</option>
+          </select>
+      </div>
+      
+      <div class="central-schemes" style="display: none;">
+          <select name="cname">
+              <option value="">None</option>
+              <option value="Pradhan Mantri Fasal Bima Yojana">Pradhan Mantri Fasal Bima Yojana</option>
+              <option value="Pradhan Mantri Kisan Samman Nidhi">Pradhan Mantri Kisan Samman Nidhi</option>
+              <option value="National Agriculture Market">National Agriculture Market</option>
+              <option value="Kisan Credit Card (KCC) Scheme">Kisan Credit Card (KCC) Scheme</option>
+              <option value="Pradhan Mantri Krishi Sinchayee Yojana">Pradhan Mantri Krishi Sinchayee Yojana</option>
+              <option value="Paramparagat Krishi Vikas Yojana">Paramparagat Krishi Vikas Yojana</option>
+              <option value="Rashtriya Krishi Vikas Yojana">Rashtriya Krishi Vikas Yojana</option>
+              <option value="National Mission for Sustainable Agriculture">National Mission for Sustainable Agriculture</option>
+              <option value="Pradhan Mantri Annadata Aay SanraksHan Abhiyan">Pradhan Mantri Annadata Aay SanraksHan Abhiyan</option>
+          </select>
+      </div> 
+        <div class="input-field">
+          <input type="text" name="apay" required>
+          <label>Enter amount_payable</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="date" required>
+          <label>Enter premium paid date</label>
+        </div>
+        <button type="submit">Store Data</button>
+        <h3>{{msg2}}</h3>
+    </div>
+  </form>
+{% endif %}
+</body>
+</html>

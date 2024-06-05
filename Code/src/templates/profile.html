@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous"
+    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User page</title>
+    <style>
+         body {
+    background-image: url('../static/pro.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(4px);
+}
+        .wrapper{
+            background-color: rgb(241, 241, 236);
+  width: 100%; 
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid black;
+  backdrop-filter: blur(9px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-top: 80px; 
+  margin-bottom: 20px; 
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 70%; 
+    margin-left: 240px; 
+  }
+}
+        #one {
+            height:70px;
+            background-color: #F86F03;
+        }
+        #t {
+            color:white;
+            margin-top: 20px;
+        }
+        a {
+            color:black;
+            text-decoration: none;
+            margin-right:60px ;
+            border-radius:10px;
+            background-color:transparent;
+        }
+        #two {
+            text-align: center;
+            float: left;
+            width: 27%;
+            height:70px;
+        }
+        #three {
+            text-align: center;
+            float:right;
+            width:55%;
+            height: 70px;
+            line-height:70px;
+        } 
+        .card {
+            margin-top: 40px;
+            margin-left: 80px;
+        } 
+        .change {
+            float: left;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .change:hover {
+            background-color: #0056b3;
+        }
+        .popup {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 1;
+        }
+        .popup input {
+            margin-bottom: 10px;
+        }
+        .popup button {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="/profile" method="post">
+        <div id="google_translate_element"></div>
+        <div id="one">
+            <div id="two">
+                <h2 id="t">
+                    <i> Profile Page </i>
+                </h2>
+            </div>
+            <div id="three">
+                <a href="/uhome" style="color: white;">Home</a>
+                <a href="/production" style="color: white;">Production</a>
+                <a href="/selling" style="color: white;">Selling</a>
+                <a href="/stubble" style="color: white;">Stubble</a>
+                <a href="/insurance" style="color: white;">Insurance</a>
+                <a href="/logout" style="color: white;">Logout</a>
+            </div>
+        </div>
+        <div class="wrapper">
+            <h1 style="margin-left: 100px;">{{msg}}</h1>
+            {% for item in data %}
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ item.name }}</td>
+                        <td>
+                            <button class="change">Change Value</button>
+                            <div id="popupName" class="popup">
+                            <input type="text" name="newName" placeholder="Enter new name">
+                            <button>Confirm</button>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td>{{ item.age }}</td>
+                        <td>
+                            <button class="change">Change Value</button>
+                            <div id="popupName" class="popup">
+                            <input type="text" name="newAge" placeholder="Enter new age">
+                            <button>Confirm</button>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>{{ item.loc }}</td>
+                        <td>
+                            <button class="change">Change Value</button>
+                            <div id="popupLoc" class="popup">
+                            <input type="text" name="newLoc" placeholder="Enter new Location">
+                            <button>Confirm</button>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td>LandMark</td>
+                        <td>{{ item.landm }}</td>
+                        <td>
+                            <button class="change">Change Value</button>
+                            <div id="popupLm" class="popup">
+                            <input type="text" name="newLm" placeholder="Enter new Land Mark">
+                            <button>Confirm</button>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{{ item.phno }}</td>
+                        <td>
+                            <button class="change">Change Value</button>
+                            <div id="popupPhno" class="popup">
+                            <input type="text" name="newPh" placeholder="Enter new phone number">
+                            <button>Confirm</button>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td>Crop</td>
+                        <td>{{ item.crop }}</td>
+                        <td>
+                            <button class="change">Change Value</button>
+                            <div id="popupAge" class="popup">
+                                <input type="text" name="newCrop" placeholder="Enter new crop name">
+                                <button>Confirm</button>
+                            </div></td>
+                    </tr>
+                </table>
+                {% if loop.index % 2 == 0 or loop.last %}
+        </div>
+        <div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const changeButtons = document.querySelectorAll('.change');
+    
+            changeButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent default form submission behavior
+    
+                    const popup = this.parentElement.querySelector('.popup');
+                    const allPopups = document.querySelectorAll('.popup');
+    
+                    // Hide all other popups
+                    allPopups.forEach(function (popup) {
+                        popup.style.display = 'none';
+                    });
+    
+                    // Show the corresponding popup
+                    popup.style.display = 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous" 
+      />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registartion Page</title>
+  <style>
+    body {
+    background-image: url('../static/insu.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(4px);
+}
+    #one
+        {
+            height:70px;
+            background-color:#F86F03;
+            /* position: fixed; */
+        }
+        #t{
+            color:white;
+            margin-top: 20px;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+            margin-right:60px ;
+            border-radius:10px;
+            background-color:transparent;
+        }
+        #two
+        {
+            text-align: center;
+            float: left;
+            width: 27%;
+            height:70px;
+        }
+        #three
+        {
+            text-align: center;
+            float:right;
+            width:55%;
+            height: 70px;
+            line-height:70px;
+        } 
+        .wrapper,
+.wrapper1 {
+    background-color: rgb(241, 241, 236);
+  width: 100%; 
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid black;
+  /* backdrop-filter: blur(100px); */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-top: 80px; 
+  margin-bottom: 20px; 
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper,
+  .wrapper1 {
+    width: 70%; 
+    margin-left: 240px; 
+  }
+}
+#one1
+        {
+            /* margin-top: 30px; */
+            height:70px;
+            background-color: #f98c39;
+        }
+        #three1
+    {
+        text-align: center;
+        width:100%;
+        height: 70px;
+        line-height:70px;
+        display: flex;
+        align-items: center; 
+    } 
+  </style>
+</head>
+<body>
+    <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,te,mr,ta,ur,gu,kn,ml',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <div id="one">
+            <div id="two">
+                <h2 id="t">
+                    <i> Insurance Page </i>
+                </h2>
+            </div>
+            <div id="three" >
+                <a href="/uhome" style="color: white;">Home</a>
+                <a href="/production" style="color: white;">Production</a>
+                <a href="/selling" style="color: white;">Selling</a>
+                <a href="/stubble" style="color: white;">Stubble</a>
+                <a href="/profile" style="color: white;">Profile</a>
+                <a href="/logout" style="color: white;">Logout</a>
+            </div>
+        </div>
+        <marquee style="color:blue"><h3>You have different levels of Insurance Schemes</h3></marquee>
+        <h2>{{msg}}</h2>
+        <div id="one1">
+            <div id="three1" >
+                <a href="/storescheme" style="color: white;padding-left: 400px;padding-right: 200px;">Store Data</a>
+                <a href="/showscheme" style="color: white;padding-left: 200px;padding-right: 100px;">Show Transaction History</a>
+            </div>
+        </div>
+        <div class="wrapper">
+            <h1>Here are the list of state schemes available</h1>
+            <table class="table table-bordered table-striped">
+              <tr>
+                  <th>Scheme Name</th>
+                  <th>Premium</th>
+                  <th>Eligibility</th>
+                  <th>Benefits</th>
+              </tr>
+              <tr>
+                  <th><h6>(YSR JSBH-BRS)ysr jagananna saswatha bhoomi</h6></th>
+                  <th><h6>1,60,398 crores</h6></th>
+                  <th><h6>All farmers to provide ownership of their land of rural and urban areas of farmers</h6></th>
+                  <th><h6>This scheme 
+                      records the residents property owned and provide the proof card of ownership  and loans, rural and urban development 
+                  </h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(YSR svs)ysr Donna baddie scheme</h6></th>
+                  <th><h6>Rs. 1 lakh per year in bank accout</h6></th>
+                  <th><h6>All farmers and repaying the same with in 1year</h6></th>
+                  <th><h6>Interest subsidy is provided to farmers availing crop loans </h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(JJKS)jagananna herbs Lesotho scheme </h6></th>
+                  <th><h6>Rs. 1869 crores</h6></th>
+                  <th><h6>Financial stability for womens</h6></th>
+                  <th><h6>This scheme is to provide the women empower with social stability for ssc, St, bc</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(FCIS)Free crop insurance scheme </h6></th>
+                  <th><h6>Rs. 1,801 Crores of kharif  seasoon</h6></th>
+                  <th><h6>Framers across the state, free crop insurance scheme with physical verification of crops &easy enrollment process </h6></th>
+                  <th><h6>Protection of farmers against all the excessive climate changes, natural calamities </h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(YSR JKS)ysr jalapeno Kala scheme </h6></th>
+                  <th><h6>Rs. 12.5 crores</h6></th>
+                  <th><h6>Farmers can get benefits of free borewells drilling from the government ,shortage of water and irrigation of 2.5 acres</h6></th>
+                  <th><h6>Utilize of ground water available for small and marginal faers</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(AECTS)agriculture electricity cash transfer scheme </h6></th>
+                  <th><h6>Rs. 20,000 Crores as loans to farmers</h6></th>
+                  <th><h6>Free power supply provided to the agriculture sector. The bill amount will be credited to the bank accounts</h6></th>
+                  <th><h6>Farming sector it provides assistance in electricity bill payment  and 2% limit 20,000 Crores as loan</h6></th>
+              </tr>
+              <tr><th><h6>(RRS)rythu Raksha scheme </h6></th>
+                  <th><h6>Kharip and rabi Seasons10,000.per year</h6></th>
+                  <th><h6>Small farmers, marginal and tenant Farmers</h6></th>
+                  <th><h6>10,000 Per year and not to farmers suicide</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(YSR RBPMKS)ysr Ruthy Bharos-pm Kosam scheme</h6></th>
+                  <th><h6>In 1 stage 7,500 in b/w April to may, 2stage 4,000 in b/w October 3stage 2000 January</h6></th>
+                  <th><h6>This is all through out the andhra Pradesh farmers only of SC, St, BC &minoritiez</h6></th>
+                  <th><h6>This provide the financial assistance to the farmers rs. 13,500</h6></th>
+              </tr>
+            </table>
+        </div>
+        <div class="wrapper1">
+            <h1>Here are the list of central schemes available</h1>
+            <table class="table table-bordered table-striped">
+              <tr>
+                  <th>Scheme Name</th>
+                  <th>Premium</th>
+                  <th>Eligibility</th>
+                  <th>Benefits</th>
+              </tr>
+              <tr>
+                  <th><h6>(PMFBY)Pradhan Mantri Fasal Bima Yojana </h6></th>
+                  <th><h6>2% for kharif crops and 1.5% for rabi crops. </h6></th>
+                  <th><h6>All farmers, including loanee and non-loanee farmers, cultivating notified crops in notified areas are eligible </h6></th>
+                  <th><h6>PMFBY helps farmers to manage the risks associated with farming, such as crop failure due to natural disasters or pests</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(PM-Kisan)Pradhan Mantri Kisan Samman Nidhi </h6></th>
+                  <th><h6>₹6000 per year in bank account</h6></th>
+                  <th><h6>Small and marginal farmers with landholding up to 2</h6></th>
+                  <th><h6>All qualified beneficiaries will get the Rs 2000 quarterly amount</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(eNAM)National Agriculture Market</h6></th>
+                  <th><h6>minimum investment of ₹50 lakh</h6></th>
+                  <th><h6>It offers a “plug-in” to any market yard existing in a State (whether regulated or private)</h6></th>
+                  <th><h6>facilitates better prices for a seller through transparent bidding , increased number of buyers from different markets , hence greater negotiation power</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(KCC)Kisan Credit Card (KCC) Scheme</h6></th>
+                  <th><h6>Rs. 15 for a single-year policy</h6></th>
+                  <th><h6>You must be 18 years or older and under 75 years of age to apply for a KCC</h6></th>
+                  <th><h6>covered against financial losses of up to Rs. 50,000 against death, permanent total disability, and loss of limbs or eyes</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(PMKSY)Pradhan Mantri Krishi Sinchayee Yojana </h6></th>
+                  <th><h6>Rs. 50,000 crores over a five-year period.</h6></th>
+                  <th><h6>Small and marginal farmers are eligible for PMKSNY.</h6></th>
+                  <th><h6>developing water sources for guaranteed irrigation</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(PKVY)Paramparagat Krishi Vikas Yojana </h6></th>
+                  <th><h6>the ratio of 60:40 by the Central and State Governments respectively</h6></th>
+                  <th><h6>aims at supporting and promoting organic farming, in turn resulting in improvement of soil health.</h6></th>
+                  <th><h6>provides school/college dropouts or unemployed youth holding a valid ID (Aadhar/PAN) and bank account a chance to get skilled and employed</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(RKVY)Rashtriya Krishi Vikas Yojana </h6></th>
+                  <th><h6>60:40 between Centre and States (90:10 for North Eastern States and Himalayan States)</h6></th>
+                  <th><h6>provides funding up to ₹5 lakh (which is a 90% grant and 10% contribution to the incubate)</h6></th>
+                  <th><h6>20-50% subsidy in 2021-22 for cultivating fruits and traditional farming</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(NMSA)National Mission for Sustainable Agriculture </h6></th>
+                  <th><h6>under NMSA, financial assistance up to 50% of cost, subject to a limit of RS. 5,000/- per hectare and Rs. 10,000/- per beneficiary is provided for promotion of organic inputs.</h6></th>
+                  <th><h6>agriculture with a special emphasis on soil & water conservation, water use efficiency, soil health management and rainfed area development.</h6></th>
+                  <th><h6>enhancing agricultural productivity especially in rainfed areas focusing on integrated farming, water use efficiency, soil health management and synergizing resource conservation.</h6></th>
+              </tr>
+              <tr>
+                  <th><h6>(PM-AASHA)Pradhan Mantri Annadata Aay SanraksHan Abhiyan </h6></th>
+                  <th><h6>Under the allocation of pm-aasha ₹28,107 crore till 2025-26</h6></th>
+                  <th><h6>a recently launched government scheme that guarantees remunerative prices to the farmers for their produce</h6></th>
+                  <th><h6>guarantees Minimum Support Prices (MSP) for crops, providing a safety net for farmers.</h6></th>
+              </tr>
+            </table>
+        </div>
+</body>
+</html>

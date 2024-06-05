@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous" 
+      />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        .card{
+            margin-top: 40px;
+            margin-left: 80px;
+        } 
+        #one
+        {
+            height:70px;
+            background-color: #F86F03;
+        }
+        #one1
+        {
+            /* margin-top: 30px; */
+            height:70px;
+            background-color: #f98c39;
+        }
+        #t{
+            color:white;
+            margin-top: 20px;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+            margin-right:60px ;
+            border-radius:10px;
+            background-color:transparent;
+        }
+        #two
+        {
+            text-align: center;
+            float: left;
+            width: 27%;
+            height:70px;
+        }
+        #three
+        {
+            text-align: center;
+            float:right;
+            width:55%;
+            height: 70px;
+            line-height:70px;
+        } 
+        #three1
+    {
+        text-align: center;
+        width:100%;
+        height: 70px;
+        line-height:70px;
+        display: flex;
+        align-items: center; 
+    } 
+    .card-header{
+        box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.6);
+    }
+    </style>
+</head>
+<body>
+    <div id="one">
+        <div id="two">
+            <h2 id="t">
+                <i> Selling Page </i>
+            </h2>
+        </div>
+        <div id="three" >
+            <a href="/uhome" style="color: white;">Home</a>
+            <a href="/production" style="color: white;">Production</a>
+            <a href="/stubble" style="color: white;">Stubble</a>
+            <a href="/insurance" style="color: white;">Insurance</a>
+            <a href="/profile" style="color: white;">Profile</a>
+            <a href="/logout" style="color: white;">Logout</a>
+        </div>
+    </div>
+    {% set root_to_emart = "/toemart" %}
+    {% set root_to_bidding = "/tobidding" %}
+    {% set current_path = request.path %}
+    
+    {% if current_path == root_to_emart %}
+    <form action="{{ root_to_emart }}" method="post">
+        <marquee style="color:blue"><h3>List of E-mart platforms where you can sell your crop</h3></marquee>
+        <div id="one1">
+            <div id="three1" >
+                <a href="/selling" style="color: white;padding-left: 300px;padding-right: 100px;">Back</a>
+                <a href="/toone" style="color: white;padding-left: 100px;padding-right: 150px;">Individual Buyers</a>
+                <a href="/tobidding" style="color: white;padding-left: 150px;padding-right: 100px;">Bidding</a>
+            </div>
+        </div>
+        <div class="row">
+            {% for item in data %}
+                <div class="col-md-6">
+                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                        <div class="card-header"><h3>Path:</h3><h3><a href="{{item[0]}}" style="text-decoration: none;">{{item[0]}}</a></h3></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </form>
+    {% elif current_path == root_to_bidding %}
+    <form action="{{ root_to_bidding }}" method="post">
+        <marquee style="color:blue"><h3>List of Bidding platforms where you can keep your crop for bidding</h3></marquee>
+        <div id="one1">
+            <div id="three1" >
+                <a href="/selling" style="color: white;padding-left: 300px;padding-right: 100px;">Back</a>
+                <a href="/toone" style="color: white;padding-left: 100px;padding-right: 150px;">Individual Buyers</a>
+                <a href="/toemart" style="color: white;padding-left: 150px;padding-right: 100px;">E-mart Platforms</a>
+            </div>
+        </div>
+        <div class="row">
+            {% for item in data %}
+                <div class="col-md-6">
+                    <div class="card bg-light mb-3" style="max-width: 30rem;">
+                        <div class="card-header" style="box-shadow: -1px 4px 28px 0px rgb(172, 195, 235);"><h3>Path:</h3><h3><a href="{{item[0]}}" style="text-decoration: none;">{{item[0]}}</a></h3></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </form>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous" 
+      />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registartion Page</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-image: url('../static/showd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: url('{{url_for("static",filename="bglogin.jpg")}}'), #000; */
+  background-position: center;
+  background-size: cover;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid black;
+  margin: 15px 0;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: black;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: black;
+}
+
+.wrapper a {
+  color: black;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+.wrapper {
+  margin-top: 30px;
+  background: #f0f0f0;
+  width: 100%; 
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid black;
+  backdrop-filter: blur(9px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* margin-top: 20px;  */
+  margin-bottom: 20px; 
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 90%; 
+    margin-left: 70px; 
+  }
+}
+
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  text-decoration: none;
+  width:400px
+}
+
+button:hover {
+  color: black;
+  border-color:black;
+  background: rgba(255, 255, 255, 0.15);
+}
+  </style>
+</head>
+<body>
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,te,mr,ta,ur,gu,kn,ml',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+{% set sell_data = "/showselling" %}
+{% set stubble_data = "/showstubble" %}
+{% set scheme_data = "/showscheme" %}
+{% set current_path = request.path %}
+
+{% if current_path == sell_data %}
+<form action="{{ sell_data }}" method="post">
+    <div class="wrapper">
+        <h4><a href="/selling">return to Home</a></h4>
+        <h1>The list of transactions you have made so far</h1>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>Crop Name</td>
+                <td>Buyer Type</td>
+                <td>Buyer Name</td>
+                <td>Quantity</td>
+                <td>Amount</td>
+                <td>Sold Date</td>
+                <td>Entry Date</td>
+            </tr>
+            {% for item in data %}
+            <tr>
+                <th><h3>{{item[0]}}</h3></th>
+                <th><h3>{{item[1]}}</h3></th>
+                <th><h3>{{item[2]}}</h3></th>
+                <th><h3>{{item[3]}}</h3></th>
+                <th><h3>{{item[4]}}</h3></th>
+                <th><h3>{{item[5]}}</h3></th>
+                <th><h3>{{item[6]}}</h3></th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+  </form>
+{% elif current_path == stubble_data %}
+<form action="{{ stubble_data }}" method="post">
+    <div class="wrapper">
+        <h4><a href="/stubble">return to Home</a></h4>
+        <h1>The list of transactions you have made so far</h1>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>Stubble Crop Name</td>
+                <td>Industry Name</td>
+                <td>Buyer Name</td>
+                <td>Quantity</td>
+                <td>Amount</td>
+                <td>Sold Date</td>
+                <td>Entry Date</td>
+            </tr>
+            {% for item in data %}
+            <tr>
+                <th><h3>{{item[0]}}</h3></th>
+                <th><h3>{{item[1]}}</h3></th>
+                <th><h3>{{item[2]}}</h3></th>
+                <th><h3>{{item[3]}}</h3></th>
+                <th><h3>{{item[4]}}</h3></th>
+                <th><h3>{{item[5]}}</h3></th>
+                <th><h3>{{item[6]}}</h3></th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+  </form>
+{% elif current_path == scheme_data %}
+<form action="{{ scheme_data }}" method="post">
+    <div class="wrapper">
+        <h4><a href="/insurance">return to Home</a></h4>
+        <h1>The list of transactions you have made so far</h1>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>Scheme Name</td>
+                <td>Scheme Type</td>
+                <td>Amount</td>
+                <td>Paid Date</td>
+                <td>Entry Date</td>
+            </tr>
+            {% for item in data %}
+            <tr>
+                <th><h3>{{item[0]}}</h3></th>
+                <th><h3>{{item[1]}}</h3></th>
+                <th><h3>{{item[2]}}</h3></th>
+                <th><h3>{{item[3]}}</h3></th>
+                <th><h3>{{item[4]}}</h3></th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+  </form>
+{% endif %}
+</body>
+</html>
